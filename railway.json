@@ -1,0 +1,11 @@
+{
+  "name": "Theta Terminal",
+  "description": "Theta Data Terminal Server",
+  "keywords": ["theta", "data", "terminal"],
+  "env": {
+    "PORT": {
+      "description": "Port to expose",
+      "value": "25510"
+    }
+  }
+}

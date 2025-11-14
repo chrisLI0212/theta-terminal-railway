@@ -6,8 +6,7 @@ WORKDIR /app
 
 RUN wget -q https://download-latest.thetadata.us -O ThetaTerminal.jar
 
-# Important: Expose the actual port (Railway will map it)
 EXPOSE 25510
 
-# Run Theta Terminal
-CMD ["java", "-jar", "ThetaTerminal.jar", "chrisicey0212@gmail.com", "Aa02120119"]
+# Start Java with specific options to handle Railway networking
+CMD ["java", "-Djava.net.preferIPv4Stack=true", "-jar", "ThetaTerminal.jar", "chrisicey0212@gmail.com", "Aa02120119"]

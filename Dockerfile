@@ -19,7 +19,7 @@ COPY entrypoint.sh .
 RUN chmod +x /app/entrypoint.sh
 
 # Download Theta Terminal v3 JAR into /app
-ENV THETA_JAR_URL="https://download-unstable.thetadata.us/ThetaTerminalv3.jar"
+ENV THETA_JAR_URL="https://download-stable.thetadata.us/"
 RUN curl -fSL "$THETA_JAR_URL" -o /app/theta-terminal.jar
 
 # Ports used by Theta Terminal

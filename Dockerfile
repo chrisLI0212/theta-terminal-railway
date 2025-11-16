@@ -28,5 +28,5 @@ EXPOSE 25503 25520
 # entrypoint.sh will create creds.txt (from hard-coded values) and then run Java
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-# Default command to start Theta Terminal
+# Fixed: Use correct JAR name and proper CMD array syntax
 CMD ["java", "-jar", "/app/ThetaTerminalv3.jar", "chrisicey0212@gmail.com", "Aa02120119"]

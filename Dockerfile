@@ -29,4 +29,4 @@ EXPOSE 25503 25520
 ENTRYPOINT ["/app/entrypoint.sh"]
 
 # Default command to start Theta Terminal
-CMD ["java", "-jar", "/app/theta-terminal.jar", "--config", "/app/config.toml"]
+CMD ["java", "-jar", "/app/ThetaTerminalv3.jar", "--config", "/app/config.toml"]

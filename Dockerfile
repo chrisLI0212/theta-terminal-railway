@@ -1,20 +1,20 @@
-FROM debian:stable-slim
+FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
 RUN apt-get update && \
-    apt-get install -y curl ca-certificates && \
+    apt-get install -y --no-install-recommends curl ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 COPY config.toml .
 COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
-# Copy your Theta Terminal binary or script.
-# Example assumes a file named theta-terminal (update accordingly).
-COPY theta-terminal ./theta-terminal
-RUN chmod +x ./theta-terminal entrypoint.sh
+# Download Theta Terminal v3
+ENV THETA_JAR_URL="https://download-unstable.thetadata.us/ThetaTerminalv3.jar"
+RUN curl -fSL "$THETA_JAR_URL" -o theta-terminal.jar
 
 EXPOSE 25503 25520
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["./theta-terminal", "--config", "/app/config.toml"]
+CMD ["java", "-jar", "/app/theta-terminal.jar", "--config", "/app/config.toml"]
